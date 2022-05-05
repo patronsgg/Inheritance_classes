@@ -3,31 +3,20 @@
 
 int main()
 {
-    Vector first(4, 2);
-    Vector other2(first);
-    cout << other2 << endl;
-    cout << first << endl;
-    first.changeX(15);
-    first.changeY(99);
-    cout << first.getX() << endl;
-    cout << first.getY() << endl;
-    cout << first << endl;
-    cout << Vector(5, 10) + Vector(10, 5) << endl;
-    cout << Vector(5, 10) - Vector(10, 5) << endl;
+    Property* p[7];
+    p[0] = new Apartment(2000000);
+    p[1] = new Apartment(1000000);
+    p[2] = new Apartment(3000000);
+    p[3] = new Car(1000000);
+    p[4] = new Car(4000000);
+    p[5] = new CountryHouse(500000000);
+    p[6] = new CountryHouse(1000000000);
 
-    Complex second(10, -14), temp(-9, 15);
-    cout << second << endl;
-    cout << second.module() << endl;
-    cout << second + temp << endl;
-    cout << second - temp << endl;
-    cout << second / temp << endl;
-    cout << second * temp << endl;
-
-    Circle other(5);
-    cout << other.getRadius() << endl;
-    cout << other.getLength() << endl;
-    cout << other.getSquare() << endl;
-    cout << other;
-
+    for (int i = 0; i < 7; i ++)
+    {
+        
+        p[i]->CalculationTax();
+        delete[] p[i];
+    }
     return 0;
 }

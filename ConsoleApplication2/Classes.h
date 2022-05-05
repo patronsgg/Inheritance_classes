@@ -1,60 +1,36 @@
 #pragma once
 #include <iostream>
-#include <string>
-
+#include <iomanip>
 using namespace std;
 
 
 
-class Vector
+class Property
 {
-private:
-    float x, y;
+protected:
+	float worth;
 public:
-    Vector();
-    Vector(float, float);
-    Vector(const Vector& v);
-    ~Vector();
-    float getX();
-    float getY();
-    void changeX(float);
-    void changeY(float);
-    friend ostream& operator<< (ostream& out, const Vector& vector);
-    Vector operator +(const Vector& other);
-    Vector operator -(const Vector& other);
+	Property(float);
+	virtual void CalculationTax();
 };
 
-class Complex
+class Apartment : public Property 
 {
-private:
-    float real,
-        imaginary;
 public:
-    Complex();
-    Complex(float, float);
-    Complex(const Complex& v);
-    ~Complex();
-    float module();
-    friend ostream& operator<< (ostream& out, const Complex& complex);
-    Complex operator +(const Complex& other);
-    Complex operator -(const Complex& other);
-    Complex operator /(const Complex& other);
-    Complex operator *(const Complex& other);
+	Apartment(float);
+	void CalculationTax() override;
 };
 
-
-
-class Circle
+class Car : public Property
 {
-private:
-    float r;
 public:
-    Circle();
-    Circle(float);
-    Circle(const Circle& v);
-    ~Circle();
-    float getSquare();
-    float getLength();
-    float getRadius();
-    friend ostream& operator<< (ostream& out, const Circle& circle);
+	Car(float);
+	void CalculationTax() override;
+};
+
+class CountryHouse : public Property
+{
+public:
+	CountryHouse(float);
+	void CalculationTax() override;
 };
